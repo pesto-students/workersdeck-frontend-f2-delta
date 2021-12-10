@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./Page.css";
 import {
-  Box,
-  Paper,
-  Grid,
-  Card,
-  Button,
-  Container,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  TextField,
-  Select
+	Box,
+	Paper,
+	Grid,
+	Card,
+	Button,
+	Container,
+	InputLabel,
+	MenuItem,
+	FormControl,
+	TextField,
+	Select,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Services from "../components/Home/Services";
@@ -22,110 +22,103 @@ import Footer from "../components/Footer/Footer";
 import Cities from "../consts/cities";
 
 const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  color: theme.palette.text.secondary
+	...theme.typography.body2,
+	color: theme.palette.text.secondary,
 }));
 
 function Home() {
-  const [city, setCity] = useState("");
-  const [pincode, setPincode] = useState("");
+	const [city, setCity] = useState("");
+	const [pincode, setPincode] = useState("");
 
-  const getServiceCard = (coffeMakerObj) => {
-    return (
-      <Grid item xs={12} sm={12} md={2} ml={4}>
-        <Services {...coffeMakerObj} />
-      </Grid>
-    );
-  };
+	const getServiceCard = (coffeMakerObj) => {
+		return (
+			<Grid item xs={12} sm={12} md={2} lg={2} ml={4}>
+				<Services {...coffeMakerObj} />
+			</Grid>
+		);
+	};
 
-  const handleChange = (event) => {
-    setCity(event.target.value);
-  };
+	const handleChange = (event) => {
+		setCity(event.target.value);
+	};
 
-  return (
-    <>
-      {/* Home Page Banner and Area */}
-      <Grid item container>
-        <Grid sm={12} xs={12} md={12} lg={12} item>
-          <Box
-            sx={{ height: "80vh" }}
-            style={{
-              backgroundImage: `url(${HomeBackground})`,
-              backgroundSize: "cover",
-              backgroundBlendMode: "overlay",
-              backgroundColor: "rgba(45, 45, 45, 0.55)"
-            }}
-          >
-            {/* Select City and Pincode */}
-            <Grid item container>
-              <Grid sm={12} xs={12} md={1} lg={1} item />
-              <Grid sm={12} xs={12} md={3} lg={3} item>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Select City
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={"0"}
-                    label="Select City"
-                    onChange={handleChange}
-                  >
-                    {Cities.map((cityObj) => (
-                      <MenuItem value={cityObj.id}> {cityObj.name}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid sm={12} xs={12} md={1} lg={1} item />
-              <Grid sm={12} xs={12} md={3} lg={3} item>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Select City
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={"0"}
-                    label="Select City"
-                    onChange={handleChange}
-                  >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
+	return (
+		<>
+			{/* Home Page Banner and Area */}
+			<Grid item container>
+				<Grid sm={12} xs={12} md={12} lg={12} item>
+					<Box
+						sx={{ height: "600px" }}
+						lg={{ height: "600px" }}
+						style={{
+							backgroundImage: `url(${HomeBackground})`,
+							backgroundSize: "cover",
+							backgroundBlendMode: "overlay",
+							backgroundColor: "rgba(45, 45, 45, 0.55)",
+						}}
+					>
+						{/* Select City and Pincode */}
+            <Grid container item>
+						<Grid sm={12} xs={12} md={3} lg={3} item ml={2}>
+							<FormControl fullWidth>
+								<InputLabel id="demo-simple-select-label">
+									Select City
+								</InputLabel>
+								<Select
+									labelId="demo-simple-select-label"
+									id="demo-simple-select"
+									value={city}
+									label="Select City"
+									onChange={handleChange}
+									className={"wd-dropdown-menu"}
+								>
+									{Cities.map((cityObj) => (
+										<MenuItem value={cityObj.id}> {cityObj.name}</MenuItem>
+									))}
+								</Select>
+							</FormControl>
+						</Grid>
+            <Grid sm={12} xs={12} md={3} lg={3} item>
+							<FormControl fullWidth>
+              <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'}/>
+							</FormControl>
+						</Grid>
+            <Grid sm={12} xs={12} md={3} lg={3} item>
+              
             </Grid>
-            {/* Select City and End here */}
-          </Box>
-        </Grid>
-      </Grid>
-      {/* Services Card */}
-      <Grid item container>
-        <Grid sm={12} xs={12} md={2} lg={2} item />
-        <Grid sm={12} xs={12} md={8} lg={8} item>
-          <Card
-            style={{
-              background: "#FFFFFA",
-              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-              borderRadius: " 8px",
-              height: "300px",
-              marginTop: "-55px"
-            }}
-          >
-            <Grid container>
-              {servicesList.map((serviceObj) => getServiceCard(serviceObj))}
             </Grid>
-          </Card>
-        </Grid>
-      </Grid>
-      {/* Offer Banner */}
-      <OfferBanner />
-      {/* Footer */}
-      <Footer />
-    </>
-  );
+						{/* Select City and End here */}
+					</Box>
+				</Grid>
+				{/* Services Card */}
+				<Grid sm={12} xs={12} md={2} lg={2} item />
+				<Grid sm={12} xs={12} md={8} lg={8} item>
+					<Card
+						sx={{
+							maxHeight: { xs: "100%", md: "300px" },
+						}}
+						style={{
+							background: "#FFFFFA",
+							boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+							borderRadius: " 8px",
+							marginTop: "-55px",
+						}}
+					>
+						<Grid container>
+							{servicesList.map((serviceObj) => getServiceCard(serviceObj))}
+						</Grid>
+					</Card>
+				</Grid>
+				{/* Services Card  End*/}
+				{/* Offer box start */}
+				<OfferBanner />
+				{/* Offer Box ends */}
+				{/* footer starts */}
+				<Footer />
+				{/* footer end */}
+			</Grid>
+		</>
+	);
 }
 
 export default Home;
