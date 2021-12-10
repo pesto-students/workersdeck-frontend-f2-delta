@@ -38,9 +38,13 @@ function Home() {
 		);
 	};
 
-	const handleChange = (event) => {
+	const handleCityChange = (event) => {
 		setCity(event.target.value);
 	};
+  const handlePinChange = (event) => {
+		setPincode(event.target.value);
+	};
+
 
 	return (
 		<>
@@ -69,7 +73,7 @@ function Home() {
 									id="demo-simple-select"
 									value={city}
 									label="Select City"
-									onChange={handleChange}
+									onChange={handleCityChange}
 									className={"wd-dropdown-menu"}
 								>
 									{Cities.map((cityObj) => (
@@ -80,11 +84,12 @@ function Home() {
 						</Grid>
             <Grid sm={12} xs={12} md={3} lg={3} item>
 							<FormControl fullWidth>
-              <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'}/>
+              <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'} name={"pincode"} value={pincode} onChange={handlePinChange} maxlength={6} />
 							</FormControl>
 						</Grid>
             <Grid sm={12} xs={12} md={3} lg={3} item>
-              
+            <Button variant="contained" className={"wd-go-btn"}>Go</Button>
+
             </Grid>
             </Grid>
 						{/* Select City and End here */}
