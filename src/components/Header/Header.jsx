@@ -141,12 +141,12 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>
 
-              <Link to="register">
+              <Link to="register" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" className={classes.btn_action_1}>
                   Register
                 </Button>
               </Link>
-              <Link to="login">
+              <Link to="login" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" className={classes.btn_action_2}>
                   Login
                 </Button>
