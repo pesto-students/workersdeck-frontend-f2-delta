@@ -27,10 +27,10 @@ function Home() {
 	const [city, setCity] = useState("");
 	const [pincode, setPincode] = useState("");
 
-	const getServiceCard = (coffeMakerObj) => {
+	const getServiceCard = (serviceCardobj) => {
 		return (
-			<Grid item xs={12} sm={12} md={2} lg={2} ml={4}>
-				<Services {...coffeMakerObj} />
+			<Grid item xs={12} sm={12} md={2} lg={2} ml={3}>
+				<Services {...serviceCardobj} />
 			</Grid>
 		);
 	};
@@ -61,7 +61,7 @@ function Home() {
 						{/* Select City and Pincode */}
             <Grid container item>
 						<Grid sm={12} xs={12} md={3} lg={3} item ml={2}>
-							<FormControl fullWidth>
+							<FormControl fullWidth className="select-box">
 								<InputLabel id="demo-simple-select-label">
 									Select City
 								</InputLabel>
@@ -80,7 +80,7 @@ function Home() {
 							</FormControl>
 						</Grid>
             <Grid sm={12} xs={12} md={3} lg={3} item>
-							<FormControl fullWidth>
+							<FormControl fullWidth className="pin-box"> 
               <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'} name={"pincode"} value={pincode} onChange={handlePinChange} maxLength={6} />
 							</FormControl>
 						</Grid>
@@ -92,25 +92,23 @@ function Home() {
 						{/* Select City and End here */}
 					</Box>
 				</Grid>
-				{/* Services Card */}
-				<Grid sm={12} xs={12} md={2} lg={2} item />
-				<Grid sm={12} xs={12} md={8} lg={8} item>
+				{/* Services Card */}	
+				
+				<Grid container direction="column" alignItems="center" justify="center">
+				<Grid item xs={4} md={10} lg={10} mb={5}>
 					<Card
 						sx={{
 							maxHeight: { xs: "100%", md: "300px" },
 						}}
-						style={{
-							background: "#FFFFFA",
-							boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-							borderRadius: " 8px",
-							marginTop: "-55px",
-						}}
+						className={"wd-home-card"}
 					>
 						<Grid container>
 							{servicesList.map((serviceObj) => getServiceCard(serviceObj))}
 						</Grid>
 					</Card>
+					</Grid>
 				</Grid>
+				
 				{/* Services Card  End*/}
 				{/* Offer box start */}
 				<OfferBanner />
