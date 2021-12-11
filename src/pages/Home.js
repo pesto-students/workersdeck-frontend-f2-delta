@@ -60,7 +60,7 @@ function Home() {
 					>
 						{/* Select City and Pincode */}
             <Grid container item>
-						<Grid sm={12} xs={12} md={3} lg={3} item ml={2}>
+						<Grid sm={12} xs={12} md={3} lg={3} item ml={2} className="select-btn">
 							<FormControl fullWidth className="select-box">
 								<InputLabel id="demo-simple-select-label">
 									Select City
@@ -79,12 +79,12 @@ function Home() {
 								</Select>
 							</FormControl>
 						</Grid>
-            <Grid sm={12} xs={12} md={3} lg={3} item>
+            <Grid sm={12} xs={12} md={3} lg={3} item className="pin-btn">
 							<FormControl fullWidth className="pin-box"> 
               <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'} name={"pincode"} value={pincode} onChange={handlePinChange} maxLength={6} />
 							</FormControl>
 						</Grid>
-            <Grid sm={12} xs={12} md={3} lg={3} item>
+            <Grid sm={12} xs={12} md={3} lg={3} item className="go-btn">
             <Button variant="contained" className={"wd-go-btn"}>Go</Button>
 
             </Grid>

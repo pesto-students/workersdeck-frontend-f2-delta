@@ -84,15 +84,15 @@ color: #FFFFFF !important;
 @media only screen and (max-width: 640px)  {
   .select-box {
     margin-top: 135px !important;
-    margin-left: 50px !important;
+    margin-left: 0px !important;
 }
 .pin-box {
   margin-top: 75px !important;
-  margin-left: 61px !important;
+  margin-left: 0px !important;
 }
 .wd-go-btn {
-  margin-top: 105px !important;
-  margin-left: 125px !important;
+  margin-top: 80px !important;
+  margin-left: 0px !important;
   padding: 4px 53px!important;
 }
 .wd-input-pincode {
@@ -101,6 +101,25 @@ color: #FFFFFF !important;
 .wd-home-card{
  width:min-content !important;
 }
+.footer-container{
+  margin-top:30em;
+  justify-content: center;
+}
+
+.select-btn {
+  position: relative;
+  left: 51px;
+}
+.pin-btn {
+
+  position: relative;
+  left: 60px;
+}
+.go-btn {
+  position: relative;
+  left: 113px;
+}
+
 }
 
 .wd-home-card{
@@ -109,7 +128,15 @@ color: #FFFFFF !important;
   border-radius: 12px;
   margin-top: -45px;
   width:max-content;
-
-
-
 }
+
+.footer-container{
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid #ffffff;
+}
+.copyright{
+  color:#ffffff;
+  text-align: center;
+}
+
