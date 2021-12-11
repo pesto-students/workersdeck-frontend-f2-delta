@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Page.css";
 import {
 	Box,
-	Paper,
 	Grid,
 	Card,
 	Button,
