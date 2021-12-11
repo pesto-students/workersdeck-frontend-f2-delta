@@ -21,10 +21,7 @@ import HomeBackground from "../assets/homebg.jpg";
 import Footer from "../components/Footer/Footer";
 import Cities from "../consts/cities";
 
-const Item = styled(Paper)(({ theme }) => ({
-	...theme.typography.body2,
-	color: theme.palette.text.secondary,
-}));
+
 
 function Home() {
 	const [city, setCity] = useState("");
@@ -84,7 +81,7 @@ function Home() {
 						</Grid>
             <Grid sm={12} xs={12} md={3} lg={3} item>
 							<FormControl fullWidth>
-              <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'} name={"pincode"} value={pincode} onChange={handlePinChange} maxlength={6} />
+              <TextField id="outlined-basic" label="Pin Code" variant="outlined"  className={'wd-input-pincode'} name={"pincode"} value={pincode} onChange={handlePinChange} maxLength={6} />
 							</FormControl>
 						</Grid>
             <Grid sm={12} xs={12} md={3} lg={3} item>
