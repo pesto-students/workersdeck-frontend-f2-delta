@@ -122,16 +122,16 @@ const ResponsiveAppBar = () => {
               sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               className={classes.wd_text}
             >
-              <Link to="/">
+              <Link to="/" style={{ textDecoration: 'none' }}>
                 <Button
                   key={"home"}
                   onClick={handleCloseNavMenu}
-                  sx={{ mr: 2, color: "black", display: "block", mt: 1 }}
+                  sx={{ mr: 2, color: "black",  display: "block", mt: 1 }}
                 >
                   Home
                 </Button>
               </Link>
-              <Link to="/">
+              <Link to="/" style={{ textDecoration: 'none' }}>
                 <Button
                   key={"home"}
                   onClick={handleCloseNavMenu}
