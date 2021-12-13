@@ -159,3 +159,8 @@ color: #000000 !important;
   border-bottom: 6px solid #3F51B5 !important;
 
 }
+
+.divider{
+  border: 1px solid #909090 !important;
+  max-width: 1254px !important;
+}

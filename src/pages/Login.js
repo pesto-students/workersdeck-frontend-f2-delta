@@ -8,6 +8,8 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import "./Page.css";
 import Button from "@mui/material/Button";
+import { userActions } from '../_actions';
+
 
 function Login() {
 
@@ -20,6 +22,7 @@ function Login() {
     const { email, password } = inputs;
     const dispatch = useDispatch();
     const location = useLocation();
+    const loggingIn = useSelector(state => state.authentication.loggingIn);
 
 
     function handleChange(e) {
@@ -29,8 +32,13 @@ function Login() {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(email,"email");
-      console.log(password,"pass");
+      setSubmitted(true);
+      if (email && password) {
+          // get return url from location state or default to home page
+          const { from } = location.state || { from: { pathname: "/" } };
+          dispatch(userActions.login(email, password, from));
+      }
+
     }
 
   return (
@@ -73,6 +81,7 @@ function Login() {
           fullWidth
           value={email}
           name="email"
+          error =   {submitted && !email && true}
         />
         <TextField
           required
@@ -85,6 +94,7 @@ function Login() {
           onChange={handleChange}
           value={password}
           name="password"
+          error =   {submitted && !password && true}
         />
 
         <Typography

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Header from "../components/Header/Header";
+import {
+	Box,
+	Grid,
+	Card,
+  Divider,
+  Container
+} from "@mui/material";
 import "./Page.css";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 
 const style = {
   maxWidth: 360
@@ -14,15 +15,22 @@ const style = {
 function SelectAddress() {
   return (
     <>
-      <Header />
-      <Grid item xs={12} md={12} mt={12}>
-        <Box>
+    <Grid item container>
+    <Grid item xs={12} md={12} mt={2}>
+      {/* Page Title */}
+    <Box xs={12} md={12} mb={2}>
           <h4 className="address-head" sx={style}>
             Select Address
           </h4>
-        </Box>
-        <Divider />
-      </Grid>
+    </Box>
+    {/* Page Title End */}
+    </Grid>
+    <span className="divider"></span>
+    <Grid item xs={12} md={12} mt={2}>
+    <Container maxWidth="xl">container</Container>
+    </Grid>
+    </Grid>
+      
     </>
   );
 }
