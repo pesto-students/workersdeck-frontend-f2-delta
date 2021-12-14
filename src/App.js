@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import MyProfile from "./pages/MyProfile";
 import MyBooking from "./pages/MyBooking";
 import SelectAddress from "./pages/SelectAddress";
+import NewAddress from "./pages/NewAddress";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route  path="/my-booking" element={<MyBooking />} />
           {/* Checkout routes */}
           <Route  path="/select-address" element={<SelectAddress />} />
+          <Route exact path="/new-address" element={<NewAddress />} />
         </Routes>
       </main>
     </div>

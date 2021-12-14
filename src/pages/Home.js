@@ -20,8 +20,6 @@ import HomeBackground from "../assets/homebg.jpg";
 import Footer from "../components/Footer/Footer";
 import Cities from "../consts/cities";
 
-
-
 function Home() {
 	const [city, setCity] = useState("");
 	const [pincode, setPincode] = useState("");
