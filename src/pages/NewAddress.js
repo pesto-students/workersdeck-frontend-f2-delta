@@ -99,16 +99,11 @@ function NewAddress() {
           fullWidth
           name="fullname"
         />
-        <FormGroup ml={6}>
-        <RadioGroup
-    aria-label="gender"
-    defaultValue="female"
-    name="radio-buttons-group"
-  >
-    <FormControlLabel value="female" control={<Radio />} label="Female" />
-    <FormControlLabel value="male" control={<Radio />} label="Male" />
-    <FormControlLabel value="other" control={<Radio />} label="Other" />
-  </RadioGroup>
+        <FormGroup ml={6} className={"wd-radio-lft"}>
+          <RadioGroup aria-label="addresstype" defaultValue="home" name="type" >
+            <FormControlLabel value="home" control={<Radio />} label="Home" />
+            <FormControlLabel value="office" control={<Radio />} label="Office" />
+          </RadioGroup>
         </FormGroup>
         <Button variant="contained" className={`wd-checkout-btn btn-lft`} type="submit">Continue</Button>
         </form>

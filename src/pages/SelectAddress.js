@@ -68,14 +68,16 @@ function SelectAddress() {
     {/* Address box end here */}
     
     <Box component="span" sx={{ p: 4}}>
-    <Link to="/new-address">
+    <Link to="/checkout/new-address">
     <Typography ml={4} component="h3" className={'wd-address-new-text'}>+ ADD NEW ADDRESS</Typography>
     </Link>
     </Box>
     
     <Box component="span" sx={{ p: 4}} textAlign='center'>
     <Grid item xs={12} md={12} mt={3}>
+    <Link to="/checkout/avaibility">
     <Button variant="contained" className={"wd-checkout-btn"}>Continue with this address</Button>
+    </Link>
     </Grid>
     </Box>
     </Container>
