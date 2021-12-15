@@ -91,6 +91,13 @@ const customStyle = makeStyles({
     fontSize: "64px !important",
     lineHeight: "96px !important",
     color: "#ffffff !important"
+  },
+
+  SecondaryCard:{
+      background: "#FFFFFF",
+      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      borderRadius: "8px",      
+      height: "483px"
   }
 });
 

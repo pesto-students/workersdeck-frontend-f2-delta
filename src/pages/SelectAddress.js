@@ -1,28 +1,89 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Header from "../components/Header/Header";
+import {
+	Box,
+	Grid,
+	Button,
+  Container,
+  Typography,
+  FormControl,
+  Radio,
+  FormControlLabel
+} from "@mui/material";
+import { Link } from "react-router-dom";
 import "./Page.css";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 
 const style = {
   maxWidth: 360
 };
 
 function SelectAddress() {
+
+  const initAddressVal = {
+    uid:'',
+    type:'',
+    address:'',
+    pincode:''
+  }
+
+
+  const [address,setAddress] = useState(initAddressVal);
+  const [addressId,setAddressId] = useState(0);
+
+  function handleClick(e) {
+    setAddressId(e.target.value);
+    console.log(addressId);
+  }
+
+  useEffect(() => {
+    console.log("run api here ")
+  }, []);
+
   return (
+    
     <>
-      <Header />
-      <Grid item xs={12} md={12} mt={12}>
-        <Box>
+    <Grid item container>
+    <Grid item xs={12} md={12} mt={2}>
+      {/* Page Title */}
+    <Box xs={12} md={12} mb={2}>
           <h4 className="address-head" sx={style}>
-            Select Address
+           SELECT ADDRESS
           </h4>
-        </Box>
-        <Divider />
-      </Grid>
+    </Box>
+    {/* Page Title End */}
+    </Grid>
+    
+    <Grid item xs={12} md={12} mt={1}>
+    <hr className="divider"></hr>
+    <Container maxWidth="xl" p={2}>
+      {/* Address box here */}
+    <Box component="span" sx={{ p: 2}}>
+    <Grid item xs={12} md={12} ml={3}>
+    <FormControl component="fieldset">
+    <FormControlLabel value="11" control={<Radio />} label="Home"  onClick={handleClick}/>
+    </FormControl>
+    <Typography ml={4} component="h3" className={'address-text'}>123 Main Street</Typography>
+    </Grid>
+    </Box>
+    <hr className="divider"></hr>
+    {/* Address box end here */}
+    
+    <Box component="span" sx={{ p: 4}}>
+    <Link to="/checkout/new-address">
+    <Typography ml={4} component="h3" className={'wd-address-new-text'}>+ ADD NEW ADDRESS</Typography>
+    </Link>
+    </Box>
+    
+    <Box component="span" sx={{ p: 4}} textAlign='center'>
+    <Grid item xs={12} md={12} mt={3}>
+    <Link to="/checkout/avaibility">
+    <Button variant="contained" className={"wd-checkout-btn"}>Continue with this address</Button>
+    </Link>
+    </Grid>
+    </Box>
+    </Container>
+    </Grid>
+    </Grid>
+      
     </>
   );
 }
