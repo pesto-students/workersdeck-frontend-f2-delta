@@ -231,3 +231,13 @@ color: #000000;
   background: #2D3748 !important;
   color: #FFFFFF !important;
 }
+
+.wd-service-card-title{
+  font-family: Poppins;
+font-style: normal;
+font-weight: 600 !important;
+font-size: 24px !important;
+line-height: 42px !important;
+color: #000000;
+
+}

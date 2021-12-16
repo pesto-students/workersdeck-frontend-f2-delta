@@ -105,6 +105,12 @@ const customStyle = makeStyles({
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "8px",      
     height: "92px"
+  },
+  ServiceCard:{
+    background: '#FFFFFF',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    borderRadius: '8px',
+    height: '246px',
   }
 });
 
