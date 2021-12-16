@@ -46,7 +46,7 @@ function Login() {
   	<Grid item container>
     <Grid sm={12} xs={12} md={6} lg={6} item>
     <Box
-      sx={{
+      style={{
         height: 680,
         width: 720,
         maxHeight: { xs: 233, md: 680 },

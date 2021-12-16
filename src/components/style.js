@@ -32,7 +32,7 @@ const customStyle = makeStyles({
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25) !important",
     borderRadius: "8px !important",
     color: "#fff !important",
-    width: "175px !important",
+    width: "185px !important",
     height: "52px !important",
     marginRight: "39px !important"
   },
@@ -41,7 +41,7 @@ const customStyle = makeStyles({
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25) !important",
     borderRadius: "8px !important",
     color: "#fff !important",
-    width: "175px !important",
+    width: "185px !important",
     height: "52px !important",
     marginRight: "39px !important"
   },
@@ -97,7 +97,14 @@ const customStyle = makeStyles({
       background: "#FFFFFF",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       borderRadius: "8px",      
-      height: "483px"
+      height: "493px"
+  },
+  
+  ThirdCard:{
+    background: "#FFFFFF",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "8px",      
+    height: "92px"
   }
 });
 

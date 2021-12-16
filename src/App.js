@@ -9,6 +9,7 @@ import MyBooking from "./pages/MyBooking";
 import SelectAddress from "./pages/SelectAddress";
 import NewAddress from "./pages/NewAddress";
 import Booking from "./pages/Booking";
+import ServicesList from "./pages/ServiceList";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route  path="/my-profile" element={<MyProfile />} />
           <Route  path="/my-booking" element={<MyBooking />} />
+          {/* Service Lists */}
+          <Route exact path="/services" element={<ServicesList />} />
           {/* Checkout routes */}
           <Route  path="/checkout/select-address" element={<SelectAddress />} />
           <Route exact path="/checkout/new-address" element={<NewAddress />} />

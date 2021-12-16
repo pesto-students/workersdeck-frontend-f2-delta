@@ -40,19 +40,19 @@ function Register() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              height: 680,
-              width: 720,
-              maxHeight: { xs: 233, md: 680 },
-              maxWidth: { xs: 408, md: 720 },
-              backgroundSize: "cover",
-              backgroundBlendMode: "overlay",
-              backgroundColor: "rgba(45, 45, 45, 0.55)",
-              backgroundImage: `url(${registerBackground})`
-            }}
-            className="auth_page_banner"
-          />
+        <Box
+      style={{
+        height: 680,
+        width: 720,
+        maxHeight: { xs: 233, md: 680 },
+        maxWidth: { xs: 408, md: 720 },
+        backgroundSize: "cover",
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(45, 45, 45, 0.55)",
+        backgroundImage: `url(${registerBackground})`
+      }}
+      className="auth_page_banner"
+    />
         </Grid>
 
         <Grid item xs={12} md={6} mt={12}>
