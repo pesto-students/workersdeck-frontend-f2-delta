@@ -12,6 +12,8 @@ import MenuItem from "@mui/material/MenuItem";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import customStyle from "../style";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const pages = ["Home", "Register As Worker"];
 
@@ -31,6 +33,8 @@ const lightTheme = createTheme({
 });
 
 const ResponsiveAppBar = () => {
+  const loggedIn = useSelector((state) => state.authentication.loggedIn);
+  const user = useSelector((state) => state.authentication.info)
   const classes = customStyle();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -101,7 +105,7 @@ const ResponsiveAppBar = () => {
                   <Typography textAlign="center">Register as Worker</Typography>
                 </MenuItem>
                 <MenuItem key={"Register"} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Register</Typography>
+    <Typography textAlign="center">Register</Typography>
                 </MenuItem>
                 <MenuItem key={"Login"} onClick={handleCloseNavMenu}>
                   <Link to="login">
@@ -141,14 +145,23 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>
 
+                {!loggedIn && 
               <Link to="register" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" className={classes.btn_action_1}>
                   Register
                 </Button>
+              </Link>}
+              {loggedIn &&
+                <Link to="register" style={{ textDecoration: 'none' }}>
+                <Button variant="contained" className={classes.btn_action_1}>
+                {user.fullname}
+                </Button>
               </Link>
+              }
               <Link to="login" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" className={classes.btn_action_2}>
-                  Login
+                {!loggedIn && 'Login'} 
+                {loggedIn && 'Logout'} 
                 </Button>
               </Link>
             </Box>

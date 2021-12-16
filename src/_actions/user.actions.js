@@ -14,13 +14,11 @@ export const userActions = {
 function login(email, password, from) {
     return dispatch => {
         dispatch(request({ email }));
-
         userService.login(email, password)
             .then(
                 user => { 
-                    dispatch(success(user));
+                    dispatch(success(user.data));
                     history.push(from);
-                    console.log(user);
                 },
                 error => {
                     dispatch(failure(error.toString()));
