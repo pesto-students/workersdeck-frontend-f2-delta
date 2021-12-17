@@ -112,6 +112,12 @@ const customStyle = makeStyles({
     borderRadius: "8px !important",
     height: "246px",
   },
+  CheckoutCard:{
+    background: "#FFFFFF",  
+  border: '1px solid rgba(0, 0, 0, 0.25)',
+  boxSizing: 'border-box',
+  height: '280px',
+  }
 });
 
 export default customStyle;
