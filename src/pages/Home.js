@@ -5,14 +5,12 @@ import {
   Grid,
   Card,
   Button,
-  Container,
   InputLabel,
   MenuItem,
   FormControl,
   TextField,
   Select,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Services from "../components/Home/Services";
 import OfferBanner from "../components/Home/OfferBanner";
 import servicesList from "../consts/services";
@@ -40,15 +38,14 @@ function Home() {
   };
 
   const handleSubmit = (event) => {
-	event.preventDefault();
-	console.log("working");
-  }
+    event.preventDefault();
+    console.log("working");
+  };
 
   return (
     <>
       {/* Home Page Banner and Area */}
       <Grid item container>
-		 
         <Grid sm={12} xs={12} md={12} lg={12} item>
           <Box
             sx={{ height: "600px" }}
@@ -62,7 +59,6 @@ function Home() {
           >
             {/* Select City and Pincode */}
             <Grid container item>
-		
               <Grid
                 sm={12}
                 xs={12}
@@ -83,7 +79,7 @@ function Home() {
                     label="Select City"
                     onChange={handleCityChange}
                     className={"wd-dropdown-menu"}
-					required
+                    required
                   >
                     {Cities.map((cityObj) => (
                       <MenuItem value={cityObj.id}> {cityObj.name}</MenuItem>
@@ -102,17 +98,21 @@ function Home() {
                     value={pincode}
                     onChange={handlePinChange}
                     maxLength={6}
-					required
-					onKeyPress={(event) => {
-						if (!/[0-9]/.test(event.key)) {
-						  event.preventDefault();
-						}
-					}}
+                    required
+                    onKeyPress={(event) => {
+                      if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault();
+                      }
+                    }}
                   />
                 </FormControl>
               </Grid>
               <Grid sm={12} xs={12} md={3} lg={3} item className="go-btn">
-                <Button variant="contained" className={"wd-go-btn"} type="submit">
+                <Button
+                  variant="contained"
+                  className={"wd-go-btn"}
+                  type="submit"
+                >
                   Go
                 </Button>
               </Grid>
@@ -121,7 +121,7 @@ function Home() {
             {/* Select City and End here */}
           </Box>
         </Grid>
-	
+
         {/* Services Card */}
 
         <Grid container direction="column" alignItems="center" justify="center">

@@ -1,8 +1,5 @@
 import React from "react";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import {CardContent,CardMedia,Typography,Button} from "@mui/material/";
 
 const Services = (props) => {
   const { id, title, image } = props;
@@ -20,7 +17,7 @@ const Services = (props) => {
               fontSize: "18px",
               color: "#000000",
               textAlign: "center",
-              marginLeft: "-10px"
+              marginLeft: "-10px",
             }}
           >
             {title}

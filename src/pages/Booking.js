@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import "./Page.css";
-import {
-  Box,
-  Grid,
-  Card,
-  Button,
-  Container,
-  TextField
-} from "@mui/material";
+import { Box, Grid, Card, Button, Container, TextField } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import isWeekend from "date-fns/isWeekend";
@@ -42,9 +35,14 @@ function Booking() {
         </Grid>
 
         <Container maxWidth="xl" className="wd-myprofile-layout">
-          <Card lg={12} sm={12} className={classes.SecondaryCard} style={{
+          <Card
+            lg={12}
+            sm={12}
+            className={classes.SecondaryCard}
+            style={{
               overflow: "auto",
-          }}>
+            }}
+          >
             <Grid item container p={3}>
               <Grid sm={12} xs={12} md={6} lg={6} item mt={2}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -85,12 +83,19 @@ function Booking() {
                     renderInput={(params) => <TextField {...params} />}
                   />
                 </LocalizationProvider>
-                <Grid container direction="column" alignItems="right" justify="right" mt={2}>
-              <Button variant="contained" className={"wd-checkout-btn"}>Preview Booking</Button>
-              </Grid>
+                <Grid
+                  container
+                  direction="column"
+                  alignItems="right"
+                  justify="right"
+                  mt={2}
+                >
+                  <Button variant="contained" className={"wd-checkout-btn"}>
+                    Preview Booking
+                  </Button>
+                </Grid>
               </Grid>
               {/* Time Picker */}
-           
             </Grid>
           </Card>
         </Container>
