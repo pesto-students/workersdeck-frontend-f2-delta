@@ -3,7 +3,7 @@ import { userConstants } from '../consts';
 let info = JSON.parse(localStorage.getItem('user'));
 const initialState = info ? { loggedIn: true, info } : {
     loggedIn:false,
-    user: {}
+    info
 };
 
 export function authentication(state = initialState, action) {
@@ -21,7 +21,9 @@ export function authentication(state = initialState, action) {
         case userConstants.LOGIN_FAILURE:
             return {};
         case userConstants.LOGOUT:
-            return {};
+            return {
+                loggedIn: false,
+            };
         default:
             return state
     }

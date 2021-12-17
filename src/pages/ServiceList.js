@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Page.css";
 import {
 	Box,
@@ -8,19 +8,32 @@ import {
 	Container,
     Paper,
     Stack,
+    Typography,
+    Rating
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import customStyle from "../components/style";
+import CardList from "../components/Service/CardList";
+import fakeServiceList from "../consts/fakeServiceList";
 
 function ServicesList() {
     const classes = customStyle();
-
     const Item = styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
       }));
+
+      const getServiceCard = (fakeServiceList) => {
+        return (
+          <>
+            <CardList {...fakeServiceList} />
+          </>
+        );
+      };
+      
+      const [showDetails,setShowDetails] = useState(false);
 
     return(
         <>
@@ -39,33 +52,16 @@ function ServicesList() {
             </Container>
             </Grid>
             {/* Subcategories end */}
-          <Grid item xs={12} sm={12} md={8} mt={2}>
-          <Container maxWidth="xl" className="wd-myprofile-layout">
-          <Card lg={12} sm={12} className={classes.ServiceCard}>
-          <Grid item container>
-          <Grid item xs={4} sm={4} md={4}>
-          <Box
-          component="img"
-          sx={{
-            height: 182,
-            width: 300,
-            maxHeight: { xs: 233, md: 182 },
-            maxWidth: { xs: 350, md: 300 },
-            marginLeft:"36px",
-          }}
-          alt="The house from the offer."
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
-        />
-          </Grid>
-          {/* Card content */}
-          <Grid item xs={8} sm={8} md={8}>
-              sd
-          </Grid>
-          {/* card content end */}
-          </Grid>
-          </Card>
-          </Container>
-          </Grid>
+            {/* Service Card List*/}
+            <Grid item xs={12} sm={12} md={7} mt={2}>
+            {fakeServiceList.map((serviceObj) => getServiceCard(serviceObj))}
+            </Grid>
+            {/* Service card list end */}
+            {/* Service Details */}
+            <Grid item xs={12} sm={12} md={5} mt={2}>
+
+            </Grid>
+            {/* Service Details End */}
           </Grid>
         </>
     )
