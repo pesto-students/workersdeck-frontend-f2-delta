@@ -10,9 +10,10 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
 import customStyle from "../style";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
+import { userActions } from '../../_actions';
 
 
 const pages = ["Home", "Register As Worker"];
@@ -33,13 +34,20 @@ const lightTheme = createTheme({
 });
 
 const ResponsiveAppBar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const loggedIn = useSelector((state) => state.authentication.loggedIn);
   const user = useSelector((state) => state.authentication.info)
   const classes = customStyle();
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+
+
+  const handleLogout = () => {
+    dispatch(userActions.logout());
+    navigate('/login');
+  }
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -158,12 +166,18 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>
               }
+              {!loggedIn &&
               <Link to="login" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" className={classes.btn_action_2}>
-                {!loggedIn && 'Login'} 
-                {loggedIn && 'Logout'} 
+                  {'Login'}
                 </Button>
               </Link>
+             } 
+              {loggedIn &&
+                <Button variant="contained" className={classes.btn_action_2} onClick={handleLogout}>
+                  {'Logout'}
+                </Button>
+             } 
             </Box>
           </Toolbar>
         </Container>

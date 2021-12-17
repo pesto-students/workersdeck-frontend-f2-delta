@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Page.css";
 import {
 	Box,
@@ -8,19 +8,32 @@ import {
 	Container,
     Paper,
     Stack,
+    Typography,
+    Rating
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import customStyle from "../components/style";
+import CardList from "../components/Service/CardList";
+import fakeServiceList from "../consts/fakeServiceList";
 
 function ServicesList() {
     const classes = customStyle();
-
     const Item = styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
       }));
+
+      const getServiceCard = (fakeServiceList) => {
+        return (
+          <>
+            <CardList {...fakeServiceList} />
+          </>
+        );
+      };
+      
+      const [showDetails,setShowDetails] = useState(false);
 
     return(
         <>
@@ -39,11 +52,16 @@ function ServicesList() {
             </Container>
             </Grid>
             {/* Subcategories end */}
-          <Grid item xs={12} sm={12} md={8} mt={2}>
-          <Container maxWidth="xl" className="wd-myprofile-layout">
-            
-          </Container>
-          </Grid>
+            {/* Service Card List*/}
+            <Grid item xs={12} sm={12} md={7} mt={2}>
+            {fakeServiceList.map((serviceObj) => getServiceCard(serviceObj))}
+            </Grid>
+            {/* Service card list end */}
+            {/* Service Details */}
+            <Grid item xs={12} sm={12} md={5} mt={2}>
+
+            </Grid>
+            {/* Service Details End */}
           </Grid>
         </>
     )

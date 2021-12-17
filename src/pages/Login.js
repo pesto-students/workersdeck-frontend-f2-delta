@@ -18,6 +18,8 @@ function Login() {
         password: ''
     });
 
+    const [error,setError] = useState('');
+
     const [submitted, setSubmitted] = useState(false);
     const { email, password } = inputs;
     const dispatch = useDispatch();
