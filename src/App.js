@@ -10,6 +10,8 @@ import SelectAddress from "./pages/SelectAddress";
 import NewAddress from "./pages/NewAddress";
 import Booking from "./pages/Booking";
 import ServicesList from "./pages/ServiceList";
+import BookingConfirmation from "./pages/BookingConfirmation";
+import ThankYou from './pages/ThankYou';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route  path="/checkout/select-address" element={<SelectAddress />} />
           <Route exact path="/checkout/new-address" element={<NewAddress />} />
           <Route exact path="/checkout/avaibility" element={<Booking />} />
+          <Route exact path="/checkout/preview" element={<BookingConfirmation />} />
+          <Route exact path="/checkout/booked" element={<ThankYou />} />
         </Routes>
       </main>
     </div>
