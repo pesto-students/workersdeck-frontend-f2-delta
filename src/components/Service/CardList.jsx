@@ -87,7 +87,6 @@ const CardList = (props) => {
             }}>
             <Button variant="contained" className={'wd-pages-card-view-btn'}>View Details</Button>
             </Grid>
-
             {/* View Button */}
             {/* service Pricing end */}
           </Grid>

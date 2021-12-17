@@ -160,9 +160,12 @@ const ResponsiveAppBar = () => {
                 </Button>
               </Link>}
               {loggedIn &&
-                <Link to="register" style={{ textDecoration: 'none' }}>
-                <Button variant="contained" className={classes.btn_action_1}>
-                {user.fullname}
+                <Link to="my-profile" style={{ textDecoration: 'none' }}>
+                 <Button
+                  sx={{ mr: 2, color: "black", display: "block", mt: 1 }}
+                  style={{fontWeight:'600'}}
+                >
+                 {user?.fullname}
                 </Button>
               </Link>
               }

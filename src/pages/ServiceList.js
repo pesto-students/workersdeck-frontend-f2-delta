@@ -14,6 +14,7 @@ import {
 import { styled } from "@mui/material/styles";
 import customStyle from "../components/style";
 import CardList from "../components/Service/CardList";
+import CardDetail from "../components/Service/CardDetail";
 import fakeServiceList from "../consts/fakeServiceList";
 
 function ServicesList() {
@@ -59,7 +60,7 @@ function ServicesList() {
             {/* Service card list end */}
             {/* Service Details */}
             <Grid item xs={12} sm={12} md={5} mt={2}>
-
+              <CardDetail /> 
             </Grid>
             {/* Service Details End */}
           </Grid>
