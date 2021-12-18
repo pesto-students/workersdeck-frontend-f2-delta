@@ -1,32 +1,45 @@
 import React, { useState, useEffect } from "react";
-import {Box,Button,Grid,TextField,FormControl,Radio,RadioGroup,FormControlLabel} from "@mui/material/";
+import {Box,Button,Grid,TextField,FormControl,Radio,RadioGroup,FormControlLabel,Typography} from "@mui/material/";
 import registerBackground from "../assets/auth_banner.png";
 import "./Page.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../_actions';
+
 
 
 function Register() {
   const defaultValues = {
+    fullname:"",
     email: "",
     password: "",
+    mobile_no:""
   };
+  const [msg,setMsg] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [formValues, setFormValues] = useState(defaultValues);
+  const dispatch = useDispatch();
+  
 
   useEffect(() => {}, [formValues]);
 
   const handleInputChange = (e) => {
-    const { email, password } = e.target;
+    const { name, value } = e.target;
     setFormValues({
       ...formValues,
-      [email]: email,
-      [password]: password,
+      [name]: value,
     });
   };
 
-  const [selectedValue, setSelectedValue] = React.useState("");
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
+  const handleSubmit = (event) => {
+    setSubmitted(true);
+        if (formValues.fullname && formValues.email && formValues.password && formValues.mobile_no) {
+            dispatch(userActions.register(formValues));
+        }
   };
+
+  
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -46,7 +59,7 @@ function Register() {
             className="auth_page_banner"
           />
         </Grid>
-
+   
         <Grid item xs={12} md={6} mt={12}>
           <Box
             component="form"
@@ -58,12 +71,16 @@ function Register() {
             autoComplete="off"
           >
             <h4 className="auth-head">Create New Account</h4>
+          
             <TextField
               required
-              id="email"
+              id="fullname"
               label="Full Name"
               variant="outlined"
               className="field-spacing"
+              name="fullname"
+              value={formValues.fullname}
+              onChange={handleInputChange}
             />
 
             <TextField
@@ -72,6 +89,9 @@ function Register() {
               label="Email"
               variant="outlined"
               className="field-spacing"
+              name="email"
+              value={formValues.email}
+              onChange={handleInputChange}
             />
             <TextField
               required
@@ -79,6 +99,14 @@ function Register() {
               label="Mobile Number"
               variant="outlined"
               className="field-spacing"
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              value={formValues.mobile}
+              name="mobile_no"
+              onChange={handleInputChange}
             />
             <TextField
               required
@@ -87,32 +115,21 @@ function Register() {
               variant="outlined"
               type="password"
               className="field-spacing"
+              value={formValues.password}
+              onChange={handleInputChange}
+              name="password"
             />
-            <Grid item xs={12} md={12} mt={12}>
-              <RadioGroup
-                row
-                aria-label="position"
-                name="position"
-                defaultValue="top"
-                sx={{
-                  marginLeft: "20px",
-                }}
-              >
-                <FormControlLabel
-                  value="end"
-                  control={<Radio />}
-                  label="I agree and accept TnC"
-                  sx={{
-                    fontSize: "16px",
-                  }}
-                />
-              </RadioGroup>
+             <Grid item xs={12} md={6} mt={4} ml={2}>
+            <Typography variant="string">
+              By Registration you accept TnC
+            </Typography>
             </Grid>
-            <Button variant="contained" className="auth-btn">
+            <Button variant="contained" className="auth-btn" onClick={handleSubmit}>
               Register
             </Button>
           </Box>
         </Grid>
+
       </Grid>
     </Box>
   );

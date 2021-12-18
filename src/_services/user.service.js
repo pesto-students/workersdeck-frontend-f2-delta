@@ -43,8 +43,14 @@ function getById(id) {
 }
 
 function register(user) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+    };
 
-   }
+    return fetch(`${baseurl}/user/signup`, requestOptions).then(handleResponse);
+}
 
 function update(user) {
     }
