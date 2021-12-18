@@ -12,7 +12,7 @@ export const userActions = {
 
 function login(email, password, from) {
     return dispatch => {
-        //dispatch(request({ email }));
+        dispatch(request({ email }));
         userService.login(email, password)
             .then(
                 user => { 

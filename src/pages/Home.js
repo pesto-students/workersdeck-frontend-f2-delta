@@ -21,6 +21,7 @@ import Cities from "../consts/cities";
 function Home() {
   const [city, setCity] = useState("");
   const [pincode, setPincode] = useState("");
+  const [service, setService] = useState("");
 
   const getServiceCard = (serviceCardobj) => {
     return (
@@ -32,6 +33,9 @@ function Home() {
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
+  };
+  const handleServiceChange = (event) => {
+    setService(event.target.value);
   };
   const handlePinChange = (event) => {
     setPincode(event.target.value);
@@ -58,12 +62,13 @@ function Home() {
             }}
           >
             {/* Select City and Pincode */}
+            <form onSubmit={handleSubmit}>
             <Grid container item>
-              <Grid
+            <Grid
                 sm={12}
                 xs={12}
-                md={3}
-                lg={3}
+                md={2}
+                lg={2}
                 item
                 ml={2}
                 className="select-btn"
@@ -80,6 +85,7 @@ function Home() {
                     onChange={handleCityChange}
                     className={"wd-dropdown-menu"}
                     required
+                    name="city"
                   >
                     {Cities.map((cityObj) => (
                       <MenuItem value={cityObj.id}> {cityObj.name}</MenuItem>
@@ -87,7 +93,38 @@ function Home() {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid sm={12} xs={12} md={3} lg={3} item className="pin-btn">
+              <Grid
+                sm={12}
+                xs={12}
+                md={2}
+                lg={2}
+                item
+                ml={1}
+                className="select-btn"
+              >
+                <FormControl fullWidth className="select-box">
+                  <InputLabel id="demo-simple-select-label">
+                    Select Category
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={service}
+                    label="Select Category"
+                    onChange={handleServiceChange}
+                    className={"wd-dropdown-menu"}
+                    required
+                    name="category_id"
+                  >
+                    <MenuItem value={1}>Painter</MenuItem>
+                    <MenuItem value={2}>Carpainter</MenuItem>
+                    <MenuItem value={3}>Plumber</MenuItem>
+                    <MenuItem value={4}>Electrician</MenuItem>
+                    <MenuItem value={5}>Cleaning Service</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid sm={12} xs={12} md={2} lg={2}  item className="pin-btn">
                 <FormControl fullWidth className="pin-box">
                   <TextField
                     id="outlined-basic"
@@ -107,7 +144,7 @@ function Home() {
                   />
                 </FormControl>
               </Grid>
-              <Grid sm={12} xs={12} md={3} lg={3} item className="go-btn">
+              <Grid sm={12} xs={12} md={2} lg={2} item className="go-btn">
                 <Button
                   variant="contained"
                   className={"wd-go-btn"}
@@ -117,6 +154,7 @@ function Home() {
                 </Button>
               </Grid>
             </Grid>
+            </form>
 
             {/* Select City and End here */}
           </Box>
